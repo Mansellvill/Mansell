@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.grid {
+    margin: 100px auto;
+    width: 600px;
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    font-size: 18px;    
+}
+
+.grid :nth-child(odd){
+    grid-column: 2 / -1;
+}
+.grid :nth-child(1){
+    grid-column: 1 / -1;
+}
+
+.grid div{
+    color: black;
+    padding: 10px 10px;
+ 
+}
+.grid div p{
+    color: red;
+    margin-bottom: 5px;
+}
+.grid div hr{
+    border: 1px solid black;
+}
+
+.grid div:nth-child(2),.grid div:nth-child(4),.grid div:nth-child(6) {
+    padding-top: 12px;
+}
+
+.grid label{
+    font-weight: bold;
+}
+
+.grid div input{
+    border-radius: 5px ; 
+    border: 1px solid #212941;
+    height: 30px;
+}
+
+.grid div input[type = "email"],.grid div input[type = "url"]{
+    float: left;
+}
+
+.grid div textarea{
+    border-radius: 5px ; 
+    border: 1px solid #212941;
+    height: 50px;
+    width: 200px;
+    resize: none;
+}
+
+.grid div button{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px ; 
+    border: 1px solid #212941;
+    font-weight: bold;
+    margin-left: 70px;
+}
+
+.grid div.span-2{
+    float: left;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 6px 1fr;
+    font-size: 15px;
+}
+.grid div.span-2 div{
+    padding: 0;
+    margin-left: 30px;
+}
+
+.grid div.span-2 div:nth-child(1){
+    margin-top: 8px;
+    grid-column: 1 / 1;
+    width: 0; 
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent; 
+    border-right:6px solid red; 
+   
+}
+.grid div.span-2 div:nth-child(2){
+    padding: 4px 10px 4px 15px;
+    background-color: red; 
+    width: 110px; 
+    height: 20px;
+    color: white;
+}
+
+.grid div input[type = "email"]:invalid ~ div.span-2, .grid div input[type = "url"]:invalid ~ div.span-2 {
+    visibility: visible;
+}
+.grid div input[type = "email"]:valid ~ div.span-2, .grid div input[type = "url"]:valid ~ div.span-2 {
+    visibility: hidden;
+}
