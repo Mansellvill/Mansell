@@ -1,36 +1,39 @@
 <DOCTYPE html>
     <html>
         <head>
+            <title>Forms</title>
             <link rel="stylesheet" href="styles.css">
         </head>
         <body>
+            <form>
             <div class="grid">
                 <div>
                     <h1>Form Here</h1>
                     <p>* required fields</p>
                     <hr>
                 </div>
-                <div><label for = "name">Name:</label></div>
-                <div><input id = "name" type="text" placeholder=" placeholder text"></div>
-                <div><label for = "email">Email:</label></div>
+                <div><label for="name">Name:</label></div>
+                <div><input id="name" type="text" placeholder=" placeholder text"></div>
+                <div><label for="email">Email:</label></div>
                 <div>
-                    <input id = "email" type="email" placeholder=" placeholder text" required>
-                    <div class="span-2">
+                    <input id="email" type="email" placeholder=" placeholder text" required>
+                    <div class="hint-block">
                         <div></div>
                         <div>Form field hint</div> 
                     </div>
                 </div>              
-                <div><label for = "website">Website:</label></div>
+                <div><label for="website">Website:</label></div>
                 <div>                   
-                    <input id = "website" type="url" placeholder=" placeholder text" required>
-                    <div class="span-2">
+                    <input id="website" type="url" placeholder=" placeholder text" required>
+                    <div class="hint-block">
                         <div></div>
                         <div>Form field hint</div> 
                     </div>
                 </div>          
-                <div><label for = "message">Message:</label> </div>
-                <div><textarea id = "message"></textarea></div>
+                <div><label for="message">Message:</label> </div>
+                <div><textarea id="message"></textarea></div>
                 <div><button>Submit</button></div>
-            </div>        
+            </div>
+        </form>        
         </body>  
     </html>

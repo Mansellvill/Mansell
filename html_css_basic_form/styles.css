@@ -46,7 +46,7 @@
     height: 30px;
 }
 
-.grid div input[type = "email"],.grid div input[type = "url"]{
+.grid div input[type="email"],.grid div input[type="url"]{
     float: left;
 }
 
@@ -67,7 +67,7 @@
     margin-left: 70px;
 }
 
-.grid div.span-2{
+.grid div.hint-block{
     float: left;
     padding: 0;
     margin: 0;
@@ -75,12 +75,12 @@
     grid-template-columns: 6px 1fr;
     font-size: 15px;
 }
-.grid div.span-2 div{
+.grid div.hint-block div{
     padding: 0;
     margin-left: 30px;
 }
 
-.grid div.span-2 div:nth-child(1){
+.grid div.hint-block div:nth-child(1){
     margin-top: 8px;
     grid-column: 1 / 1;
     width: 0; 
@@ -90,7 +90,7 @@
     border-right:6px solid red; 
    
 }
-.grid div.span-2 div:nth-child(2){
+.grid div.hint-block div:nth-child(2){
     padding: 4px 10px 4px 15px;
     background-color: red; 
     width: 110px; 
@@ -98,9 +98,9 @@
     color: white;
 }
 
-.grid div input[type = "email"]:invalid ~ div.span-2, .grid div input[type = "url"]:invalid ~ div.span-2 {
+input[type="email"]:invalid ~ div.hint-block, input[type="url"]:invalid ~ div.hint-block {
     visibility: visible;
 }
-.grid div input[type = "email"]:valid ~ div.span-2, .grid div input[type = "url"]:valid ~ div.span-2 {
+input[type="email"]:valid ~ div.hint-block, input[type="url"]:valid ~ div.hint-block {
     visibility: hidden;
 }
