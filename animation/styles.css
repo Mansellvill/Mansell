@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.circle_with_gradient{
+    margin: 200px auto;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle at center, red, green);
+    animation-name: circle;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-duration: 10s;
+    border-radius: 100%;
+    animation-play-state: paused;
+}
+.circle_with_gradient:hover{
+  animation-play-state: running;
+}
+
+@keyframes circle{
+0%{
+    transform: rotate(0deg);
+    background: radial-gradient(circle at center, red, green);
+}
+
+15%{
+    border-radius: 100%;
+}
+30% {
+    background: radial-gradient(circle at center, yellow, blueviolet);
+}
+50%{
+    width: 600px;
+    height: 600px;
+    border-radius: 10%;  
+}
+70%{
+    transform: rotate(180deg);
+}
+85%{
+    background: linear-gradient(45deg, rgba(10, 243, 10, 0.93), #CF0FE0);
+}
+100%{
+    border-radius: 100%;
+}
+}
