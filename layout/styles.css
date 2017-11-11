@@ -2,28 +2,92 @@
     margin: 0;
     padding: 0;
 }
-  
-.grid{
-    display: grid;
-    margin: 0 auto;
-    max-width: 1024px;
 
-    grid-template-rows: 50px 350px 300px 300px; 
-    grid-template-areas: "nav header header find"                
-                         "main main main main"       
-                         "aside-left aside-left aside-left aside-left"
-                         "aside-right aside-right aside-right aside-right"
-                         
-                         
-}
+@media screen and (max-width: 1024px) {
+    .grid{
+        display: grid;
+        margin: 0 auto;
+        max-width: 1024px;
 
-.grid > address{
-    display: none;
-}
-.grid > header{
-    justify-self: center;
-}
+        grid-template-rows: 50px 350px minmax(300px,auto) minmax(300px,auto); 
+        grid-template-areas: "nav header header find"                
+                             "main main main main"       
+                             "aside-left aside-left aside-left aside-left"
+                             "aside-right aside-right aside-right aside-right"
+                                                  
+    }
 
+    .grid > address{
+        display: none;
+    }
+    .grid > header{
+        justify-self: center;
+    }
+    .grid > nav {
+        justify-self: center;
+    }
+    .grid > nav ul{
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 300px;
+        left: -340px;
+        transition: transform .3s
+        ease-in-out;
+        background: rgb(26, 196, 248);
+    
+    }
+    
+    /*.grid > nav a.open{
+        margin: auto;
+    
+        display: block;
+        color: rgb(26, 196, 248);
+        line-height: 50px;
+        font-size: 28px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    .grid > nav a.open:hover{
+        background: #ADC0CE;
+        color: white;
+    }*/
+
+    .grid > nav a.open img{
+        widows: 48px;
+        height: 48px;
+    }
+
+
+    .grid > nav li{
+        margin: 10px;
+    }
+    
+    .grid > nav ul a.toggle{
+        display: block;
+        height: 30px;
+        padding: 10px;
+        text-align: center;
+        font-size: 28px;
+    }
+
+    .grid > nav ul a{
+        display: block;
+        color: white;
+        list-style: none;
+        text-decoration: none;
+    }
+
+    .grid > nav ul a:hover{
+        color: rgb(26, 196, 248);
+        background: white;
+    }
+
+    .grid > nav #ul:target {
+        transform: translateX(340px);   
+    }
+
+}
 
 
 
@@ -71,13 +135,15 @@
         border-left: 2px solid gray;
         border-right: 2px solid gray;
     }
-
-    .grid > nav ul{
+    .grid > nav a.toggle{
+        display: none;  
+    }
+    .grid > nav ul{      
         list-style: none; 
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: 50px;
-       
+        
     }
     .grid > nav li{
         border: 1px solid rgba(209, 206, 206, 0.699);
@@ -117,11 +183,8 @@
 
 
 .grid > nav{
-    grid-area: nav;
-    
+    grid-area: nav; 
 }
-
-
 
 .grid > section.find{
     grid-area: find;
