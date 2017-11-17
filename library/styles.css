@@ -251,7 +251,6 @@
     text-decoration: none;
     line-height: 20px;
     color: rgb(120, 130, 157);
-
 }
 
 .element_nav_menu_main_content a:hover
@@ -282,6 +281,10 @@
     color: rgb(140,151,178);
   
 }
+.div_search_main_content input:focus{
+    outline: none;
+}
+
 .search_button{
     font-size: 14px;
     color: rgb(140,151,178);
@@ -291,6 +294,12 @@
     top: 20%;
     right: 40px;
 }
+
+.div_search_main_content button:focus{
+    outline: none;
+}
+
+
 /*Books Contents*/
 .books{
     padding: 30px 20px 20px 20px;
@@ -345,8 +354,7 @@
 
 .book_authors{
     font-size: 12px;
-    align-self: end;
-   
+    align-self: end; 
 }
 .book_authors a{
     text-decoration: none;
@@ -358,11 +366,38 @@
 }
 
 .book_rating{
-    font-size: 14px;
-    color: rgb(255,171,0);
+    font-size: 0;  
     align-self: end;
 }
+.book_rating_wrap{
+    display: inline-block;
+    font-size: 14px;
+}
 
+.book_rating_wrap:after{
+    content: "";
+	display: table;
+	clear: both;
+}
+.book_rating_ico{
+    float: right;
+	padding-left: 2px;
+    cursor: pointer;
+    color: rgb(255,171,0);
+}
+.book_rating_ico:last-child{
+    padding-left: 0;
+}
+.book_rating_input{
+    display: none;
+}
+
+.book_rating_ico:hover:before,
+.book_rating_ico:hover ~ .book_rating_ico:before,
+.book_rating_input:checked ~ .book_rating_ico:before
+{
+	content: "\f005";
+}
  /*FOOTER*/ 
 .footer{
     background-color: #181e2c;
