@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+</head>
+
+<body>
+    <ul onclick="alert(event.target.tagName)">
+        <li>
+            <span>Цифры</span>
+            <ul>
+                <li>
+                    <span>1</span>
+                </li>
+                <li>
+                    <span>2</span>
+                </li>
+                <li>
+                    <span>3</span>
+                </li>
+                <li>
+                    <span>4</span>
+                </li>
+                <li>
+                    <span>5</span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+
+        var number = document.getElementsByTagName('ul')[0];
+
+        number.onclick = function (event) {
+            var target = event.target;
+
+            if (target.tagName != 'SPAN') {
+                return;
+            }
+            var li = target.parentNode;
+            var childrenContainer = li.getElementsByTagName('ul')[0];
+            childrenContainer.hidden = !childrenContainer.hidden;
+        }
+    </script>
+</body>
+
+</html>
