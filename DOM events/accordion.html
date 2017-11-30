@@ -3,48 +3,81 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accordion</title>
+    <title>Document</title>
+
+    <style>
+        div.div_name_menu {
+            height: 30px;
+            width: 150px;
+            background: lightblue;
+            margin: 5px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        div.div_pod_elem {
+            height: 30px;
+            width: 150px;
+            margin: 5px 20px;
+            background-color: bisque;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        div.div_pod_menu {
+            display: none;
+            margin: 0 40px;
+        }
+
+        div.show {
+            display: block;
+        }
+    </style>
+
 </head>
 
-<body>
-    <ul onclick="alert(event.target.tagName)">
-        <li>
-            <span>Цифры</span>
-            <ul>
-                <li>
-                    <span>1</span>
-                </li>
-                <li>
-                    <span>2</span>
-                </li>
-                <li>
-                    <span>3</span>
-                </li>
-                <li>
-                    <span>4</span>
-                </li>
-                <li>
-                    <span>5</span>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <script>
+<hr>
 
-        var number = document.getElementsByTagName('ul')[0];
+<div id="div_menu">
+    <div class="div_name_menu">Животные</div>
+    <div class="div_pod_menu">
+        <div class="div_name_menu">Млекопитающие</div>
+        <div class="div_pod_menu">
+            <div class="div_pod_elem">Коровы</div>
+            <div class="div_pod_elem">Ослы</div>
+            <div class="div_pod_elem">Собаки</div>
+            <div class="div_pod_elem">Тигры</div>
+        </div>
+        <div class="div_name_menu">Другие</div>
+        <div class="div_pod_menu">
+            <div class="div_pod_elem">Змеи</div>
+            <div class="div_pod_elem">Птицы</div>
+            <div class="div_pod_elem">Ящерицы</div>
+        </div>
+    </div>
+    <div class="div_name_menu">Рыбы</div>
+    <div class="div_pod_menu">
+        <div class="div_name_menu">Аквариумные</div>
+        <div class="div_pod_menu">
+            <div class="div_pod_elem">Гуппи</div>
+            <div class="div_pod_elem">Скалярии</div>
+        </div>
+        <div class="div_name_menu">Морские</div>
+        <div class="div_pod_menu">
+            <div class="div_pod_elem">Морская форель</div>
+        </div>
+    </div>
+</div>
 
-        number.onclick = function (event) {
-            var target = event.target;
+<hr>
 
-            if (target.tagName != 'SPAN') {
-                return;
-            }
-            var li = target.parentNode;
-            var childrenContainer = li.getElementsByTagName('ul')[0];
-            childrenContainer.hidden = !childrenContainer.hidden;
-        }
-    </script>
-</body>
+<script>
+    div_menu.onclick = function (event) {
+        var target = event.target;
+        if (target.className != "div_name_menu") return;
+        target.nextElementSibling.classList.toggle('show');
+    }
+</script>
 
 </html>
