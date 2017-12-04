@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Divs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            position: relative;
+
+        }
+
+        button {
+            width: 120px;
+            height: 30px;
+            background-color: orange;
+            cursor: pointer;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="create_div">Создать DIV</button>
+
+    <script>
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+
+        function cordWidthDivs(rand, width) {
+            var newWidth = width.substring(0, width.length - 2);
+            if (rand > screen.width - +newWidth) {
+                return screen.width - +newWidth;
+            }
+            return rand;
+        }
+
+        function cordHeightDivs(rand, height) {
+            var newHeight = height.substring(0, height.length - 2);
+            if (rand > screen.height - +newHeight) {
+                return screen.height - +newHeight;
+            }
+            return rand;
+        }
+
+
+
+        var butt = document.getElementById('create_div');
+        butt.onclick = function () {
+            var newDiv = document.createElement('div');
+            newDiv.style.backgroundColor = getRandomColor();
+            newDiv.style.width = getRandomInt(50, screen.width / 4) + 'px';
+            newDiv.style.height = getRandomInt(50, screen.height / 4) + 'px';
+            newDiv.style.top = cordHeightDivs(getRandomInt(0, screen.height), newDiv.style.height) + 'px';
+            newDiv.style.left = cordWidthDivs(getRandomInt(0, screen.width), newDiv.style.width) + 'px';
+            newDiv.style.position = 'absolute';
+            document.body.appendChild(newDiv);
+            /*DragDrop*/
+            newDiv.onmousedown = function (e) {
+
+                var coords = getCoords(newDiv);
+                var shiftX = e.pageX - coords.left;
+                var shiftY = e.pageY - coords.top;
+
+                moveAt(e);
+                newDiv.style.zIndex = 1000;
+
+                function moveAt(e) {
+                    newDiv.style.left = e.pageX - shiftX + 'px';
+                    newDiv.style.top = e.pageY - shiftY + 'px';
+                }
+
+                document.onmousemove = function (e) {
+                    moveAt(e);
+                }
+
+                newDiv.onmouseup = function () {
+                    document.onmousemove = null;
+                    newDiv.onmouseup = null;
+                }
+
+                newDiv.ondragstart = function () {
+                    return false;
+                };
+
+                function getCoords(elem) {
+                    var box = elem.getBoundingClientRect();
+                    return {
+                        top: box.top + pageYOffset,
+                        left: box.left + pageXOffset
+                    };
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

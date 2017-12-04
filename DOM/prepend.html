@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prepend</title>
+</head>
+<body>
+    <p id="hello">World!!!</p>
+    <script>
+        function prepend(element, newElement){
+            var addNewElement = document.createElement('span');
+            addNewElement.innerHTML = newElement;
+            element.insertBefore(addNewElement, element.firstChild);
+        }
+
+        prepend(hello, 'Hello');
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeleteTextNodes(rec)</title>
+</head>
+<body>
+    <p>Что-то написано</p>
+    <div id="div_body"> 
+        ялялял
+        <p>Что-то написано</p>
+        <div>
+            feffe
+            <p>Что-то написано</p>           
+        </div>
+        fefwe
+    </div>
+    <p>Что-то написано</p>
+    <script>
+        function deleteTextNodes(elem){ 
+            for(var i = 0; i < elem.childNodes.length; i++){ 
+                var childNode = elem.childNodes[i]; 
+                if(elem.childNodes[i].nodeType == 3){ 
+                    elem.removeChild(childNode); 
+                    i--; 
+                } 
+                if(childNode.nodeType == 1){ 
+                    deleteTextNodes(childNode); 
+                }
+            } 
+        }
+        deleteTextNodes(div_body);
+
+        
+
+    </script>
+</body>
+</html>
