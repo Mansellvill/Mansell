@@ -36,9 +36,9 @@ function Book(img, name, author, rating) {
     ratingStarInput[i] = document.createElement("input");
     ratingStarInput[i].classList.add("book_rating_input");
     ratingStarInput[i].id = `star-rating-${i}`;
-    ratingStarInput[i].type = "radio";
+    ratingStarInput[i].type = "checkbox";
     ratingStarInput[i].name = "rating";
-    /* ratingStarInput[i].value = 1;*/
+    if(rating >= i) ratingStarInput[i].checked = true;
     ratingStarLabel[i] = document.createElement("label");
     ratingStarLabel[i].classList.add(
       "book_rating_ico",
@@ -49,6 +49,7 @@ function Book(img, name, author, rating) {
     ratingStarLabel[i].setAttribute("for", ratingStarInput[i].id);
     ratingStarLabel[i].title = `${i} out of ${i} stars`;
   }
+
   //Выводим данные из JSON
   bookCovers.style.backgroundImage = `url(${img})`;
   bookTitles.innerHTML = name;

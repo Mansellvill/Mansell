@@ -18,11 +18,11 @@ app.get("/json", function(req, res) {
 app.post("", urlencodedParser, function(req, res) {
   
   if(!req .body) return res.sendStatus(400);
+  let img = `img/${req.body.popup_img_book_input}`;
   let name = req.body.popup_name_book_input;
   let author = req.body.popup_name_author_input;
   let rating = req.body.rating;
-  let img = '';
-
+ 
   let book = {
     img: img,
     name: name,
@@ -33,6 +33,7 @@ app.post("", urlencodedParser, function(req, res) {
   booksJS.push(book);
   var data = JSON.stringify(booksJS);
   fs.writeFileSync("books.json", data);
+  
  res.end();
 
 });
